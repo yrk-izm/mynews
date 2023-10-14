@@ -7,16 +7,7 @@ use Illuminate\Http\Request;
 
 class NewsController extends Controller
 {
-    //
-}
-
-namespace App\Http\Controllers\Admin;
-
-use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-
-class NewsController extends Controller
-{
+    // ここに Action を追記する
     // 以下を追記
     public function add()
     {
