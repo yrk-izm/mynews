@@ -17,20 +17,24 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+use App\Http\Controllers\Admin\NewsController;// 使うクラスの use 宣言も忘れずに
+Route::get('/admin/news/create', [NewsController::class, 'add']);
+// //                                                       ^^^^^ アクションを指定する
+// //                                ^^^^^^^^^^^^^^^^^^^^^ クラスを指定する
+// //         ^^^^^^^^^^^^^^^^^^^^ URL を指定する
+Route::get('/admin/news/edit', [NewsController::class, 'edit']);
+
+use App\Http\Controllers\Admin\ProfileController;
+Route::get('admin/profile/create, [ProfileController::class, 'add']);
+Route::get('admin/profile/edit, [ProfileController::class, 'edit']);
+
+
 // laravel09
-use App\Http\Controllers\Admin\NewsController;
-Route::controller(NewsController::class)->prefix('admin')->group(function() {
-    Route::get('news/create', 'add');
-});
+//use App\Http\Controllers\Admin\NewsController;
+//Route::controller(NewsController::class)->prefix('admin')->group(function() {
+//    Route::get('news/create', 'add');
 
-// 課題？
-// use App\Http\Controllers\Admin\NewsController;
-// Route::controller(NewsController::class)->prefix('admin')->group(function() {
-//     Route::get('admin/profile/create','Admin\ProfileController@add');
-//     Route::get('admin/profile/edit','Admin\ProfileController@edit');
-// });
+//Auth::routes();
 
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+//Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
