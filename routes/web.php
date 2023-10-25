@@ -25,8 +25,8 @@ Route::get('/admin/news/create', [NewsController::class, 'add']);
 Route::get('/admin/news/edit', [NewsController::class, 'edit']);
 
 use App\Http\Controllers\Admin\ProfileController;
-Route::get('admin/profile/create, [ProfileController::class, 'add']);
-Route::get('admin/profile/edit, [ProfileController::class, 'edit']);
+Route::get('admin/profile/create', [ProfileController::class, 'add']);
+Route::get('admin/profile/edit', [ProfileController::class, 'edit']);
 
 
 // laravel09
