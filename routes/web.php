@@ -18,7 +18,7 @@ Route::get('/', function () {
 });
 
 use App\Http\Controllers\Admin\NewsController;// 使うクラスの use 宣言も忘れずに
-Route::get('/admin/news/create', [NewsController::class, 'add']);
+Route::get('/admin/news/create', [NewsController::class, 'add'])->middleware('auth');
 // //                                                       ^^^^^ アクションを指定する
 // //                                ^^^^^^^^^^^^^^^^^^^^^ クラスを指定する
 // //         ^^^^^^^^^^^^^^^^^^^^ URL を指定する
@@ -34,7 +34,7 @@ Route::get('admin/profile/edit', [ProfileController::class, 'edit']);
 //Route::controller(NewsController::class)->prefix('admin')->group(function() {
 //    Route::get('news/create', 'add');
 
-//Auth::routes();
+Auth::routes();
 
-//Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
