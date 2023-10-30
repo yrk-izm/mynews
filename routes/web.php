@@ -29,10 +29,10 @@ Route::get('admin/profile/create', [ProfileController::class, 'add'])->middlewar
 Route::get('admin/profile/edit', [ProfileController::class, 'edit'])->middleware('auth');
 
 
-// laravel09
-//use App\Http\Controllers\Admin\NewsController;
-//Route::controller(NewsController::class)->prefix('admin')->group(function() {
-//    Route::get('news/create', 'add');
+Route::controller(NewsController::class)->prefix('admin')->name('admin.')->middleware('auth')->group(function () {
+    Route::get('news/create', 'add')->name('news.add');
+    Route::post('news/create', 'create')->name('news.create');
+});
 
 Auth::routes();
 
