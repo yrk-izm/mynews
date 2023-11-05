@@ -18,33 +18,27 @@
                     <div class="form-group row">
                         <label class="col-md-2">氏名</label>
                         <div class="col-md-10">
-                            <input type="text" class="form-control" name="title" value="{{ old('title') }}">
+                            <input type="text" class="form-control" name="title" value="{{ 氏名('name') }}">
                         </div>
                     </div>
                         <div class="form-group row">
                         <label class="col-md-2">性別</label>
                         <div class="col-md-10">
-                            <input type="text" class="form-control" name="title" value="{{ old('title') }}">
+                            <input type="text" class="form-control" name="title" value="{{ 性別('gender') }}">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-md-2">趣味</label>
                         <div class="col-md-10">
-                            <input type="text" class="form-control" name="title" value="{{ old('title') }}">
+                            <input type="text" class="form-control" name="title" value="{{ 趣味('hobby') }}">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label class="col-md-2">自己紹介</label>
                         <div class="col-md-10">
-                            <textarea class="form-control" name="body" rows="20">{{ old('body') }}</textarea>
+                            <textarea class="form-control" name="body" rows="20">{{ 自己紹介欄('introduction') }}</textarea>
                         </div>
                      </div>
-                    　　<div class="form-group row">
-                        <label class="col-md-2">画像</label>
-                        <div class="col-md-10">
-                            <input type="file" class="form-profile-file" name="image">
-                        </div>
-                    </div>
                     @csrf
                     <input type="submit" class="btn btn-primary" value="更新">
                 </form>

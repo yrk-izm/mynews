@@ -18,7 +18,10 @@ Route::get('/', function () {
 });
 
 use App\Http\Controllers\Admin\NewsController;// 使うクラスの use 宣言も忘れずに
-Route::get('/admin/news/create', [NewsController::class, 'add'])->middleware('auth');
+Route::controller(NewsController::class)->prefix('admin')->name('admin.')->middleware('auth')->group(function () {
+    Route::get('news/create', 'add')->name('news.add');
+    Route::post('news/create', 'create')->name('news.create');
+});
 // //                                                       ^^^^^ アクションを指定する
 // //                                ^^^^^^^^^^^^^^^^^^^^^ クラスを指定する
 // //         ^^^^^^^^^^^^^^^^^^^^ URL を指定する
@@ -29,10 +32,7 @@ Route::get('admin/profile/create', [ProfileController::class, 'add'])->middlewar
 Route::get('admin/profile/edit', [ProfileController::class, 'edit'])->middleware('auth');
 Route::post('admin/profile/edit', [ProfileController::class, 'update'])->middleware('auth');
 
-Route::controller(NewsController::class)->prefix('admin')->name('admin.')->middleware('auth')->group(function () {
-    Route::get('news/create', 'add')->name('news.add');
-    Route::post('news/create', 'create')->name('news.create');
-});
+
 
 Route::controller(ProfileController::class)->prefix('admin')->name('admin.')->middleware('auth')->group(function () {
     Route::post('profile/create', 'create')->name('profile.create');
