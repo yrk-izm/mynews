@@ -21,6 +21,7 @@ use App\Http\Controllers\Admin\NewsController;// 使うクラスの use 宣言�
 Route::controller(NewsController::class)->prefix('admin')->name('admin.')->middleware('auth')->group(function () {
     Route::get('news/create', 'add')->name('news.add');
     Route::post('news/create', 'create')->name('news.create');
+    Route::get('news', 'index')->name('news.index');
 });
 // //                                                       ^^^^^ アクションを指定する
 // //                                ^^^^^^^^^^^^^^^^^^^^^ クラスを指定する
