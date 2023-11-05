@@ -36,6 +36,9 @@ class NewsController extends Controller
 
         // データベースに保存する
         $news->fill($form);
+        // fill() メソッドでは、以下の処理をしているのと同じ
+        // $news->title = $form['title'];
+        // $news->body = $form['body'];
         $news->save();
         
         return redirect('admin/news/create');
