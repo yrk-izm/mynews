@@ -22,11 +22,14 @@ Route::controller(NewsController::class)->prefix('admin')->name('admin.')->middl
     Route::get('news/create', 'add')->name('news.add');
     Route::post('news/create', 'create')->name('news.create');
     Route::get('news', 'index')->name('news.index');
+    Route::get('news/edit', 'edit')->name('news.edit');
+    Route::post('news/edit', 'update')->name('news.update');
+    Route::get('news/delete', 'delete')->name('news.delete');
 });
 // //                                                       ^^^^^ アクションを指定する
 // //                                ^^^^^^^^^^^^^^^^^^^^^ クラスを指定する
 // //         ^^^^^^^^^^^^^^^^^^^^ URL を指定する
-Route::get('/admin/news/edit', [NewsController::class, 'edit']);
+//Route::get('/admin/news/edit', [NewsController::class, 'edit']);
 
 use App\Http\Controllers\Admin\ProfileController;
 Route::get('admin/profile/create', [ProfileController::class, 'add'])->middleware('auth');
