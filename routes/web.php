@@ -23,7 +23,7 @@ Route::controller(NewsController::class)->prefix('admin')->name('admin.')->middl
     Route::post('news/create', 'create')->name('news.create');
     Route::get('news', 'index')->name('news.index');
     Route::get('news/edit', 'edit')->name('news.edit');
-    Route::post('news/edit', 'update')->name('news.update');
+    Route::post('news/edit', 'update')->name('news.update');// name: admin.news.update
     Route::get('news/delete', 'delete')->name('news.delete');
 });
 // //                                                       ^^^^^ アクションを指定する
@@ -32,9 +32,9 @@ Route::controller(NewsController::class)->prefix('admin')->name('admin.')->middl
 //Route::get('/admin/news/edit', [NewsController::class, 'edit']);
 
 use App\Http\Controllers\Admin\ProfileController;
-Route::get('admin/profile/create', [ProfileController::class, 'add'])->middleware('auth');
-Route::get('admin/profile/edit', [ProfileController::class, 'edit'])->middleware('auth');
-Route::post('admin/profile/edit', [ProfileController::class, 'update'])->middleware('auth');
+Route::get('admin/profile/create', [ProfileController::class, 'add'])->middleware('auth')->name('admin.profile.add');;
+Route::get('admin/profile/edit', [ProfileController::class, 'edit'])->middleware('auth')->name('admin.profile.edit');
+Route::post('admin/profile/edit', [ProfileController::class, 'update'])->middleware('auth')->name('admin.profile.update');
 
 
 
