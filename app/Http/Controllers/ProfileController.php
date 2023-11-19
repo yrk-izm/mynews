@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Profile;
 
 class ProfileController extends Controller
 {
@@ -13,6 +14,11 @@ class ProfileController extends Controller
         // 3. プロフィール情報を取得して
         // 済4. profile/index.blade.php というViewテンプレートに
         // 5. プロフィール情報を渡して描画するように実装してください
-        return view('profile.index');
+        
+        // Profile モデルを介して profiles テーブルからプロフィール情報を取得する
+        $posts = Profile::all()->sortByDesc('updated_at');
+
+        // ビューファイルにプロフィール情報を渡す
+        return view('profile.index', ['posts' => $posts]);
     }
 }
