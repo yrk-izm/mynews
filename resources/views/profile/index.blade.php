@@ -15,14 +15,16 @@
                                 <div class="date">
                                     {{ $post->updated_at->format('Y年m月d日') }}
                                 </div>
+                                
                                 <div class="title">
                                     {{ Str::limit($post->name, 150) }}
                                 </div>
-                                <div class="title">
-                                    {{ Str::limit($post->gender, 150) }}
+                                
+                                <div class="body mt-3">
+                                    {{ Str::limit($post->gender, 1500) }}
                                 </div>
-                                <div class="title">
-                                    {{ Str::limit($post->hobby, 150) }}
+                                <div class="body mt-3">
+                                    {{ Str::limit($post->hobby, 1500) }}
                                 </div>
                                 <div class="body mt-3">
                                     {{ Str::limit($post->introduction, 1500) }}
