@@ -15,10 +15,10 @@ class ProfileController extends Controller
         // 済4. profile/index.blade.php というViewテンプレートに
         // 5. プロフィール情報を渡して描画するように実装してください
         
-        // Profile モデルを介して profiles テーブルからプロフィール情報を取得する
-        $posts = Profile::all()->sortByDesc('updated_at');
+        // Profile １件だけ取得
+        $profile = Profile::first();
 
         // ビューファイルにプロフィール情報を渡す
-        return view('profile.index', ['posts' => $posts]);
+        return view('profile.index', ['profile' => $profile]);
     }
 }
