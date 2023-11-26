@@ -17,6 +17,9 @@ class ProfileController extends Controller
         
         // Profile １件だけ取得
         $profile = Profile::first();
+        if (empty($profile)) {
+            abort(404);
+        }
 
         // ビューファイルにプロフィール情報を渡す
         return view('profile.index', ['profile' => $profile]);
